@@ -11,10 +11,12 @@ class Salary:
         return self.wages * self.hour
 
     def __str__(self):
-        if self.hour==1:
+        if self.hour == 1:
             return f'monthly salary of {self.get_total()}'
         else:
             return f'contract of {self.hour} hours at {self.wages}/hour'
+
+
 class Commission:
     def __init__(self, money, contract=1):
         self.money = money
@@ -24,10 +26,11 @@ class Commission:
         return self.money * self.contract
 
     def __str__(self):
-        if self.contract==1:
+        if self.contract == 1:
             return f'bonus commission of {self.get_total}'
         else:
             return f'commission of {self.contract} contract(s) at {self.money}/contract'
+
 
 class Employee:
     def __init__(self, name, salary, commission=None):
@@ -37,7 +40,7 @@ class Employee:
 
     def get_pay(self):
         if self.commission:
-            return self.salary.get_total()+self.commission.get_total()
+            return self.salary.get_total() + self.commission.get_total()
         else:
             return self.salary.get_total()
 
