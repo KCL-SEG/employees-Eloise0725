@@ -2,6 +2,25 @@
 """ENTER YOUR SOLUTION HERE!"""
 
 
+class Employee:
+    def __init__(self, name, salary, commission=None):
+        self.name = name
+        self.salary = salary
+        self.commission = commission
+
+    def get_pay(self):
+        if self.commission:
+            return self.salary.get_total() + self.commission.get_total()
+        else:
+            return self.salary.get_total()
+
+    def __str__(self):
+        if self.commission:
+            return f'{self.name} works on a {self.salary}. Their total pay is {self.get_pay()}.'
+        else:
+            return f'{self.name} works on a {self.salary} and receives a {self.commission}. Their total pay is {self.get_pay()}.'
+
+
 class Salary:
     def __init__(self, wages, hour=1):
         self.wages = wages
@@ -30,25 +49,6 @@ class Commission:
             return f'bonus commission of {self.get_total}'
         else:
             return f'commission of {self.contract} contract(s) at {self.money}/contract'
-
-
-class Employee:
-    def __init__(self, name, salary, commission=None):
-        self.name = name
-        self.salary = salary
-        self.commission = commission
-
-    def get_pay(self):
-        if self.commission:
-            return self.salary.get_total() + self.commission.get_total()
-        else:
-            return self.salary.get_total()
-
-    def __str__(self):
-        if self.commission:
-            return f'{self.name} works on a {self.salary}. Their total pay is {self.get_pay()}.'
-        else:
-            return f'{self.name} works on a {self.salary} and receives a {self.commission}. Their total pay is {self.get_pay()}.'
 
 
 # Billie works on a monthly salary of 4000.  Their total pay is 4000.
